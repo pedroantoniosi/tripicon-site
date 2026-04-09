@@ -1,0 +1,81 @@
+import styles from "./page.module.css";
+import Searchbar from "@/components/searchbar/searchbar";
+import Image from "next/image";
+import Slider from "@/components/Slider";
+
+const trips = [
+  { title: "Japão", image: "/images/japan.jpg" },
+  { title: "Paris", image: "/images/paris.jpg" },
+  { title: "Brasil", image: "/images/brasil.jpg" },
+];
+
+export default function Home() {
+  return (
+    <>
+      {/* Sessão Inicial  Principal */}
+      <div className={styles.heroContainer}>
+        <div className={`${styles.heroCaption} col gap-2`}>
+          <h1 className="text-4xl  text-center">
+            {" "}
+            Viaje com propósito. Explore com liberdade
+          </h1>
+          <p className="text-md lg:text-2xl text-center m-[12]">
+            Experiências únicas, roteiros inteligentes e viagens planejadas nos
+            mínimos detalhes.
+          </p>
+          <Searchbar />
+        </div>
+      </div>
+
+      {/* Sessão de Novidades */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[4] p-[2]">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div key={index} className="flex gap-2">
+            <Image
+              className="max-w-[250px]"
+              src="/images/banner.png"
+              alt="Banner"
+              width={500}
+              height={300}
+            />
+            <div className="caption md:content-end">
+              <h2 className="font-bold font">
+                Lorem ipsum dolor sit amet consectetur.
+              </h2>
+              <p className="">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                vitae similique animi officiis perferendis. Expedita, atque!
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Sessão de planos de viagens */}
+      <div className="p-8">
+        <Slider
+          data={trips}
+          slidesPerView={{
+            mobile: 1,
+            tablet: 2,
+            desktop: 4,
+          }}
+          autoplay
+          loop
+          renderItem={(item) => (
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-[200px] object-cover"
+              />
+              <div className="p-4">
+                <h2 className="font-bold text-lg">{item.title}</h2>
+              </div>
+            </div>
+          )}
+        />
+      </div>
+    </>
+  );
+}

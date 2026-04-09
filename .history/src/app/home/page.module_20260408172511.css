@@ -1,0 +1,38 @@
+.heroContainer {
+    width: 100%;
+    background-color: red;
+
+
+
+}
+
+
+.discoverContainer {
+    background: #FF9E00;
+    background: linear-gradient(90deg, rgba(255, 158, 0, 1) 0%, rgba(255, 121, 0, 1) 100%);
+}
+
+
+
+
+@media (max-width: 768px) {
+    .featuresContainer {
+
+
+        & .card {
+            position: relative;
+
+            & .caption {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                z-index: 1;
+
+                & .text {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}

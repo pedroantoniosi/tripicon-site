@@ -1,0 +1,7 @@
+.container {
+    margin-inline: 4rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 1660px;
+    background-color: red;
+}

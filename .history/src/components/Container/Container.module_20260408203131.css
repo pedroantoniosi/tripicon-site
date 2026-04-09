@@ -1,0 +1,7 @@
+.container {
+    margin: 0 autp;
+    display: flex;
+    flex-direction: column;
+    max-width: 1660px;
+    background-color: red;
+}
