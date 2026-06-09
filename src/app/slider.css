@@ -1,0 +1,36 @@
+/* Container externo */
+.sliderContainer {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+
+    /* Oculta a scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sliderContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Lista de slides */
+.slider-content {
+    --slides: 1;
+    --gap: 1rem;
+
+    display: flex;
+    gap: var(--gap);
+    width: 100%;
+}
+
+/* Cada slide */
+.slider-content>* {
+    flex: 0 0 calc((100% - (var(--slides) - 1) * var(--gap)) / var(--slides));
+    min-width: 0;
+}
+
+/* Opcional: efeito hover */
+.slider-content>* {
+    transition: transform 0.3s ease;
+}
