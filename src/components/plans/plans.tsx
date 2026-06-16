@@ -10,7 +10,7 @@ export default function TravelPlans() {
   const [expandedDescription, setExpandedDescription] = useState(false);
 
   return (
-    <section className="plansContainer">
+    <section className="plansContainer relative">
       <h2 className="text-2xl font-bold mb-4">Planos de Viagens</h2>
 
       <div className="flex flex-row gap-4 mb-4">
@@ -18,8 +18,8 @@ export default function TravelPlans() {
           <button
             key={item.id}
             onClick={() => setSelectedPlan(item)}
-            className={`transition-colors ${
-              selectedPlan.id === item.id ? "text-primary" : "text-white"
+            className={`transition-colors bg-neutral-100 px-2 text-sm rounded-full ${
+              selectedPlan.id === item.id ? "text-primary" : "text-black"
             }`}
           >
             {item.name}
@@ -30,10 +30,17 @@ export default function TravelPlans() {
       <div
         className={`${styles.plansContent}  flex flex-col justify-end gap-4 rounded-lg p-4 rounded-xl overflow-hidden`}
       >
+        <img
+          src={selectedPlan.img}
+          className="w-full h-svh absolute object-cover"
+          alt=""
+        />
         <div className={`${styles.glassCard} flex flex-col gap-4`}>
           <div className="flex flex-row justify-between items-center gap-2 border-b-2 py-4 border-neutral-300">
-            <h2 className="text-xl font-semibold">{selectedPlan.name}</h2>
-            <span>{selectedPlan.duration}</span>
+            <h2 className="text-xl font-semibold text-white">
+              {selectedPlan.name}
+            </h2>
+            <span className="text-white">{selectedPlan.duration}</span>
           </div>
 
           <div
@@ -41,14 +48,16 @@ export default function TravelPlans() {
               expandedDescription ? "h-auto" : "h-[180px]"
             }`}
           >
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row gap-2 text-neutral-300">
               <i className="bi bi-info-circle-fill"></i>
               <p>Descrição:</p>
             </div>
             <ul className="flex flex-col gap-2">
-              <li>{selectedPlan.description}</li>
+              <li className="text-neutral-300">{selectedPlan.description}</li>
               {selectedPlan.features.map((feature, index) => (
-                <li key={index}>✓ {feature}</li>
+                <li key={index} className="text-neutral-300">
+                  ✓ {feature}
+                </li>
               ))}
             </ul>
             <span>{}</span>
@@ -56,13 +65,16 @@ export default function TravelPlans() {
 
           <div className="flex justify-end items-center">
             <button
+              className="text-white"
               onClick={() => setExpandedDescription(!expandedDescription)}
             >
               {expandedDescription ? "Ler menos" : "Ler mais"}
             </button>
           </div>
 
-          <button className="bg-primary rounded-full py-1">Ver Lugares</button>
+          <button className="bg-primary rounded-full py-1  font-semibold">
+            Ver Lugares
+          </button>
         </div>
       </div>
     </section>

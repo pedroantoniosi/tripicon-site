@@ -1,5 +1,7 @@
+//Import Hooks
+"use client";
 //Import Properties
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import Image from "next/image";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -26,12 +28,44 @@ const sliderStyle: SliderStyle = {
 };
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+
+  const filteredTours = tours.filter((tour) =>
+    tour.name.toLowerCase().includes(search.toLowerCase()),
+  );
   return (
-    <div className="">
+    <div className="hero">
       <main className="flex flex-col gap-4">
-        {/* Hero Section */}
-        <section className="hero h-svh p-1"></section>
-        {/* Popular Places */}
+        {/* Sessão Inicial */}
+        <section className="p-6 flex flex-col gap-4">
+          <h2 className="text-black font-semibold text-4xl max-w-[250px]">
+            Descubra seu nono destino:
+          </h2>
+          <div className="flex flex-row gap-4">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="placeholder-neutral-500 bg-neutral-200 rounded-full px-4 py-2 w-full outline-none"
+              placeholder="Procure por tours"
+            />
+            <button className="bg-primary p-2 rounded-full w-[50px]">
+              <i className="bi bi-sliders"></i>
+            </button>
+          </div>
+          <div className="hero-content flex flex-row flex-wrap gap-4 ">
+            {filteredTours.map((item) => (
+              <a
+                href={item.url}
+                key={item.id}
+                className="bg-neutral-200 px-2 rounded-full"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </section>
+        {/* Lugares Famosos */}
         <section className="p-2">
           <h2 className="font-bold text-xl py-4">
             Conehça lugares sensacionais
@@ -94,7 +128,7 @@ export default function Home() {
         </section>
         {/* Principais Tours */}
         <section className="p-2">
-          <h2 className="font-bold text-xl py-4">Nossos Tours</h2>
+          <h2 className="font-bold text-xl py-4">Principais Tours</h2>
           <div className="sliderContainer">
             <div className="slider-content" style={sliderStyle}>
               {tours.map((item) => (
@@ -122,7 +156,7 @@ export default function Home() {
           <Plans />
         </div>
 
-        {/* Testimonials */}
+        {/* Testimoniais */}
         <div className="p-6">
           <Testimonials />
         </div>
