@@ -3,9 +3,7 @@ export const plans = [
     id: 1,
     name: "Plano Básico",
     duration: "14 dias",
-    price: 2499,
-    img: "/assets/img/home/plans/plans-1.jfif",
-    rating: 4.7,
+    img: "/assets/img/home/plans/plans-1.webp",
     description:
       "Ideal para quem deseja conhecer os principais pontos turísticos com conforto e excelente custo-benefício.",
     features: [
@@ -21,9 +19,7 @@ export const plans = [
     id: 2,
     name: "Plano Familia",
     duration: "28 dias",
-    price: 4499,
-    img: "/assets/img/home/plans/plans-2.jfif",
-    rating: 4.9,
+    img: "/assets/img/home/plans/plans-2.webp",
     description:
       "Perfeito para famílias que buscam uma experiência completa, equilibrando lazer, passeios e comodidade.",
     features: [
@@ -40,9 +36,7 @@ export const plans = [
     id: 3,
     name: "Plano Premium",
     duration: "30 dias",
-    price: 5999,
-    img: "/assets/img/home/plans/plans-3.jfif",
-    rating: 4.7,
+    img: "/assets/img/home/plans/plans-3.webp",
     description:
       "Experiência de alto padrão com serviços exclusivos, roteiro personalizado e suporte completo durante toda a viagem.",
     features: [

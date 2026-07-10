@@ -1,8 +1,4 @@
 .plansContent {
-    position: relative;
-    min-height: 80svh;
-    z-index: 1;
-
     &::after {
         content: '';
         position: absolute;
@@ -17,19 +13,17 @@
 }
 
 .glassCard {
-    padding: 2rem;
-    position: relative;
+    padding: 1rem;
     overflow: hidden;
     background-color: #315e548a;
     backdrop-filter: blur(24px);
     /* From https://css.glass */
     background: rgba(36, 99, 90, 0.5);
-    border-radius: 26px;
+    border-radius: 1rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.2px);
     -webkit-backdrop-filter: blur(6.2px);
     border: 1px solid rgba(36, 99, 90, 0.4);
-    border-radius: 26px;
 }
 
 .glassCard::before {

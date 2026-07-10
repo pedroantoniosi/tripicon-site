@@ -14,8 +14,8 @@ export const testimonials = [
   {
     id: 2,
     name: "Sarah Williams",
-    rating: 4.8,
-    trip: "Family Plan",
+    rating: 4.5,
+    trip: "Carolina do Norte, EUA",
     text: "Traveling with my family has never been easier. The itinerary was perfectly balanced between guided tours and free time.",
     userImage: "",
     images: [
@@ -26,8 +26,8 @@ export const testimonials = [
   {
     id: 3,
     name: "David Miller",
-    rating: 5,
-    trip: "Premium Plan",
+    rating: 4.5,
+    trip: "Roma, Italia",
     text: "A truly luxury experience. From the personalized itinerary to the premium accommodations, every detail was carefully planned.",
     userImage: "",
     images: [
@@ -38,7 +38,7 @@ export const testimonials = [
   {
     id: 4,
     name: "Emily Davis",
-    rating: 4.9,
+    rating: 4,
     trip: "Family Plan",
     text: "The transportation, hotels, and activities were excellent. We created unforgettable memories.",
     userImage: "",
@@ -50,8 +50,8 @@ export const testimonials = [
   {
     id: 5,
     name: "James Anderson",
-    rating: 4.7,
-    trip: "Cancun - México",
+    rating: 4.5,
+    trip: "Cancun, México",
     text: "Great value for money. The main attractions were included, and I still had enough free time to explore on my own.",
     userImage: "",
     images: [
@@ -63,7 +63,7 @@ export const testimonials = [
     id: 6,
     name: "Carla Oliveira",
     rating: 5,
-    trip: "Rio de Janeiro - Brasil",
+    trip: "Rio de Janeiro, Brasil",
     text: "Exceptional service from start to finish. The exclusive tours and 24/7 support made the experience completely stress-free.",
     userImage: "",
     images: [

@@ -2,6 +2,10 @@ const tours = [
   {
     id: 1,
     name: "Bangkok Explorer",
+    slug: "bangkok-explorer",
+
+    plans: ["basic", "family"],
+
     city: "Bangkok",
     country: "Thailand",
     description:
@@ -20,11 +24,14 @@ const tours = [
       "Passeio pelos templos",
     ],
     highlights: ["Grand Palace", "Wat Arun", "Mercado Flutuante"],
-    url: "",
   },
   {
     id: 2,
     name: "Dubai Luxury Experience",
+    slug: "dubai-luxury-experience",
+
+    plans: ["premium"],
+
     city: "Dubai",
     country: "United Arab Emirates",
     description:
@@ -43,11 +50,14 @@ const tours = [
       "Ingressos turísticos",
     ],
     highlights: ["Burj Khalifa", "Palm Jumeirah", "Dubai Mall"],
-    url: "",
   },
   {
     id: 3,
     name: "London Heritage Tour",
+    slug: "london-heritage-tour",
+
+    plans: ["basic", "family"],
+
     city: "London",
     country: "United Kingdom",
     description:
@@ -61,11 +71,14 @@ const tours = [
     featured: false,
     includes: ["Hotel", "City Tour", "Café da manhã"],
     highlights: ["Big Ben", "London Eye", "Tower Bridge"],
-    url: "",
   },
   {
     id: 4,
     name: "Paris Romantic Escape",
+    slug: "paris-romantic-escape",
+
+    plans: ["basic", "family", "premium"],
+
     city: "Paris",
     country: "France",
     description:
@@ -79,11 +92,14 @@ const tours = [
     featured: true,
     includes: ["Hotel 4 estrelas", "Café da manhã", "Passeio de barco"],
     highlights: ["Torre Eiffel", "Museu do Louvre", "Arco do Triunfo"],
-    url: "",
   },
   {
     id: 5,
-    name: "Rio Adventure",
+    name: "Rio de Janeiro",
+    slug: "rio-adventure",
+
+    plans: ["basic"],
+
     city: "Rio de Janeiro",
     country: "Brazil",
     description:
@@ -97,11 +113,14 @@ const tours = [
     featured: true,
     includes: ["Hotel", "Transfer", "Passeio turístico"],
     highlights: ["Cristo Redentor", "Pão de Açúcar", "Copacabana"],
-    url: "",
   },
   {
     id: 6,
     name: "Rome Ancient Wonders",
+    slug: "rome-ancient-wonders",
+
+    plans: ["family", "premium"],
+
     city: "Rome",
     country: "Italy",
     description:
@@ -115,11 +134,14 @@ const tours = [
     featured: false,
     includes: ["Hotel", "Passeio guiado", "Ingressos"],
     highlights: ["Coliseu", "Fórum Romano", "Fontana di Trevi"],
-    url: "",
   },
   {
     id: 7,
     name: "Istanbul Crossroads",
+    slug: "istanbul-crossroads",
+
+    plans: ["basic", "family"],
+
     city: "Istanbul",
     country: "Turkey",
     description:
@@ -133,11 +155,14 @@ const tours = [
     featured: false,
     includes: ["Hotel", "Transfer", "Passeio guiado"],
     highlights: ["Mesquita Azul", "Santa Sofia", "Grande Bazar"],
-    url: "",
   },
   {
     id: 8,
     name: "Singapore Future City",
+    slug: "singapore-future-city",
+
+    plans: ["premium"],
+
     city: "Singapore",
     country: "Singapore",
     description:
@@ -151,11 +176,14 @@ const tours = [
     featured: true,
     includes: ["Hotel", "Transfer", "Passeios"],
     highlights: ["Marina Bay Sands", "Gardens by the Bay", "Sentosa Island"],
-    url: "",
   },
   {
     id: 9,
     name: "Tokyo Discovery",
+    slug: "tokyo-discovery",
+
+    plans: ["premium"],
+
     city: "Tokyo",
     country: "Japan",
     description:
@@ -169,11 +197,14 @@ const tours = [
     featured: true,
     includes: ["Hotel", "Passeios guiados", "Transfer"],
     highlights: ["Shibuya", "Templo Senso-ji", "Tokyo Skytree"],
-    url: "",
   },
   {
     id: 10,
     name: "Cancún Paradise",
+    slug: "cancun-paradise",
+
+    plans: ["family", "premium"],
+
     city: "Cancún",
     country: "Mexico",
     description:
@@ -187,7 +218,6 @@ const tours = [
     featured: true,
     includes: ["Resort All Inclusive", "Transfer", "Passeios"],
     highlights: ["Zona Hoteleira", "Isla Mujeres", "Chichén Itzá"],
-    url: "",
   },
 ];
 
