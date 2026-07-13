@@ -1,8 +1,11 @@
 "use client";
 
 import styles from "./plans.module.css";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+
 import plans from "@/api/plans";
 import Button from "../Button";
 
@@ -13,14 +16,18 @@ export default function TravelPlans() {
   return (
     <section className="flex flex-col min-h-[90svh]">
       <h2 className="text-2xl font-bold mb-2">Planos de Viagens</h2>
+
       <div className="flex flex-row gap-4 py-4">
         {plans.map((item) => (
           <button
             key={item.id}
-            onClick={() => setSelectedPlan(item)}
-            className={`text-sm transition-colors bg-neutral-200 px-2 py-05 text-sm rounded-full font-medium ${
+            onClick={() => {
+              setSelectedPlan(item);
+              setExpandedDescription(false);
+            }}
+            className={`transition-colors bg-neutral-200 px-3 py-2 rounded-full text-sm font-medium ${
               selectedPlan.id === item.id
-                ? "text-white bg-neutral-400"
+                ? "bg-neutral-400 text-white"
                 : "text-black"
             }`}
           >
@@ -28,19 +35,22 @@ export default function TravelPlans() {
           </button>
         ))}
       </div>
-      <div className="flex-1 relative flex-col w-full p-4">
+
+      <div className="relative flex-1 w-full p-4">
         <Image
           src={selectedPlan.img}
-          alt="Plano"
+          alt={selectedPlan.name}
           fill
-          className="w-full h-full object-cover rounded-lg"
+          className="object-cover rounded-lg"
         />
-        <div className="flex-1 absolute bottom-0 left-0 w-full p-4">
-          <div className={`${styles.glassCard}`}>
-            <div className="flex flex-row justify-between items-center gap-2 border-b-2 py-4 border-neutral-300">
+
+        <div className="absolute bottom-0 left-0 w-full p-4">
+          <div className={styles.glassCard}>
+            <div className="flex items-center justify-between gap-2 border-b-2 border-neutral-300 py-4">
               <h2 className="text-xl font-semibold text-white">
                 {selectedPlan.name}
               </h2>
+
               <span className="text-white">{selectedPlan.duration}</span>
             </div>
 
@@ -49,22 +59,24 @@ export default function TravelPlans() {
                 expandedDescription ? "h-auto" : "h-[180px]"
               }`}
             >
-              <div className="flex flex-row gap-2 text-neutral-300">
+              <div className="flex items-center gap-2 text-neutral-300">
                 <i className="bi bi-info-circle-fill"></i>
+
                 <p>Descrição:</p>
               </div>
+
               <ul className="flex flex-col gap-2">
                 <li className="text-neutral-300">{selectedPlan.description}</li>
+
                 {selectedPlan.features.map((feature, index) => (
                   <li key={index} className="text-neutral-300">
                     ✓ {feature}
                   </li>
                 ))}
               </ul>
-              <span>{}</span>
             </div>
 
-            <div className="flex justify-end items-center">
+            <div className="flex justify-end items-center mt-2">
               <button
                 className="text-white"
                 onClick={() => setExpandedDescription(!expandedDescription)}
@@ -73,7 +85,13 @@ export default function TravelPlans() {
               </button>
             </div>
 
-            <Button className="">Ver Lugares</Button>
+            <Link
+              href={`/explore/${selectedPlan.slug}`}
+              aria-label={`Ver lugares do ${selectedPlan.name}`}
+              className="block mt-4"
+            >
+              <Button className="w-full">Ver Lugares</Button>
+            </Link>
           </div>
         </div>
       </div>

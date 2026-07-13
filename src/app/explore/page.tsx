@@ -1,7 +1,7 @@
 import tours from "@/api/tours";
 
 import ExploreHero from "@/components/explore/ExploreHero";
-import ExploreClient from "@/components/explore/ExploreClient";
+import ExploreClient from "@/components/explore/ExploreContent";
 
 export default function ExplorePage() {
   return (

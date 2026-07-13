@@ -1,6 +1,7 @@
 export const plans = [
   {
     id: 1,
+    slug: "basic",
     name: "Plano Básico",
     duration: "14 dias",
     img: "/assets/img/home/plans/plans-1.webp",
@@ -17,7 +18,8 @@ export const plans = [
   },
   {
     id: 2,
-    name: "Plano Familia",
+    slug: "family",
+    name: "Plano Família",
     duration: "28 dias",
     img: "/assets/img/home/plans/plans-2.webp",
     description:
@@ -34,6 +36,7 @@ export const plans = [
   },
   {
     id: 3,
+    slug: "premium",
     name: "Plano Premium",
     duration: "30 dias",
     img: "/assets/img/home/plans/plans-3.webp",
