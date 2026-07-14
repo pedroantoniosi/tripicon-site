@@ -4,7 +4,7 @@ export default function ExploreHero() {
   return (
     <section className="relative h-100">
       <img
-        src="assets/img/explore/explore.jfif"
+        src="/assets/img/explore/explore.jfif"
         alt="Explore"
         className="object-cover w-full h-full"
       />

@@ -8,33 +8,29 @@ import { useState } from "react";
 
 import plans from "@/api/plans";
 import Button from "../Button";
+import PlansFilters from "./PlansFilters";
 
 export default function TravelPlans() {
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
   const [expandedDescription, setExpandedDescription] = useState(false);
 
+  function handleSelectPlan(id: number) {
+    const plan = plans.find((plan) => plan.id === id);
+
+    if (!plan) return;
+
+    setSelectedPlan(plan);
+    setExpandedDescription(false);
+  }
+
   return (
     <section className="flex flex-col min-h-[90svh]">
       <h2 className="text-2xl font-bold mb-2">Planos de Viagens</h2>
 
-      <div className="flex flex-row gap-4 py-4">
-        {plans.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => {
-              setSelectedPlan(item);
-              setExpandedDescription(false);
-            }}
-            className={`transition-colors bg-neutral-200 px-3 py-2 rounded-full text-sm font-medium ${
-              selectedPlan.id === item.id
-                ? "bg-neutral-400 text-white"
-                : "text-black"
-            }`}
-          >
-            {item.name}
-          </button>
-        ))}
-      </div>
+      <PlansFilters
+        selectedPlanId={selectedPlan.id}
+        onSelectPlan={handleSelectPlan}
+      />
 
       <div className="relative flex-1 w-full p-4">
         <Image

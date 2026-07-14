@@ -30,24 +30,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/">
             <button
-              className="
-      rounded-2xl
-      border border-white/15
-      bg-black/20
-      backdrop-blur-md
-      px-2
-      py-1
-      text-2xl
-      font-bold
-      text-white
-      shadow-lg
-      transition-all
-      duration-300
-      hover:bg-white/15
-      hover:border-white/25
-      hover:scale-[1.02]
-      active:scale-95
-    "
+              className="rounded-2xl border border-white/15 bg-black/20 backdrop-blur-md px-2 py-1 text-2xl
+                        font-bold text-white shadow-lg transition-all duration-300 hover:bg-white/15 hover:border-white/25 hover:scale-[1.02] active:scale-95"
             >
               TripIcon
             </button>
@@ -61,25 +45,8 @@ export default function Navbar() {
             type="button"
             aria-label="Abrir menu"
             onClick={() => setIsOpen(true)}
-            className="
-    flex
-    px-2
-    items-center
-    justify-center
-    rounded-2xl
-    border
-    border-white/15
-    bg-black/20
-    backdrop-blur-md
-    shadow-lg
-    transition-all
-    duration-300
-    hover:bg-white/15
-    hover:border-white/25
-    hover:scale-105
-    active:scale-95
-    lg:hidden
-  "
+            className="flex px-2 items-center justify-center rounded-2xl border border-white/15 bg-black/20 backdrop-blur-md shadow-lg transition-all
+                      duration-300 hover:bg-white/15 hover:border-white/25 hover:scale-105 active:scale-95 lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
