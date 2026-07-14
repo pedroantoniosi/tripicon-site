@@ -17,6 +17,7 @@ import tours from "@/api/tours";
 import Slider from "@/components/Slider";
 
 import Button from "@/components/Button";
+import PopularTours from "@/components/home/Popular.tTours";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -83,7 +84,7 @@ export default function Home() {
           </div>
         </section>
         {/* Lugares Famosos */}
-
+        <PopularTours />
         {/* Principais Tours */}
         <section className="p-2">
           <h2 className="font-bold text-xl py-4">Principais Tours</h2>
