@@ -2,7 +2,7 @@
 "use client";
 //Import Properties
 import { useState } from "react";
-import Image from "next/image";
+
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Link from "next/link";
 
@@ -83,66 +83,6 @@ export default function Home() {
           </div>
         </section>
         {/* Lugares Famosos */}
-        <section className="p-2">
-          <h2 className="font-bold text-xl py-4 md:text-center md:text-2xl">
-            Conehça lugares sensacionais
-          </h2>
-          <div className="flex flex-col gap-2 md:max-w-[1024px] md:mx-auto">
-            <div className="relative w-full h-[200px]">
-              <Image
-                src="/assets/img/home/0.jfif"
-                alt=""
-                fill
-                sizes="auto"
-                className="object-cover rounded-xl"
-              />
-            </div>
-
-            <div className="w-full">
-              <div className="relative float-left w-[48%] h-[260px]">
-                <Image
-                  src="/assets/img/home/1.jfif"
-                  alt=""
-                  fill
-                  sizes="auto"
-                  className="object-cover rounded-xl"
-                />
-              </div>
-
-              <div className="relative float-right w-[48%] h-[400px]">
-                <Image
-                  src="/assets/img/home/2.jfif"
-                  alt=""
-                  fill
-                  sizes="auto"
-                  className="object-cover rounded-xl"
-                />
-              </div>
-
-              <div className="relative float-left clear-left w-[48%] h-[450px] mt-4">
-                <Image
-                  src="/assets/img/home/3.jfif"
-                  alt=""
-                  fill
-                  sizes="auto"
-                  className="object-cover rounded-xl"
-                />
-              </div>
-
-              <div className="relative float-right w-[48%] h-[310px] mt-4">
-                <Image
-                  src="/assets/img/home/4.jfif"
-                  alt=""
-                  fill
-                  sizes="auto"
-                  className="object-cover rounded-xl"
-                />
-              </div>
-
-              <div className="clear-both" />
-            </div>
-          </div>
-        </section>
 
         {/* Principais Tours */}
         <section className="p-2">
