@@ -12,7 +12,7 @@ export default function PlansFilters({
   onSelectPlan,
 }: PlansFiltersProps) {
   return (
-    <div className="flex justify-center gap-2 overflow-x-scroll snap-x py-4">
+    <div className="max-md:flex justify-center gap-2 overflow-x-scroll snap-x py-4 md:hidden">
       {plans.map((item) => (
         <button
           key={item.id}
