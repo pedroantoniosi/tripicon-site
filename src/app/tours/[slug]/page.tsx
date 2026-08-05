@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import tours from "@/api/tours"; // ajuste o caminho conforme seu projeto
 import Image from "next/image";
 import Button from "@/components/Button";
+import Container from "@/components/Container";
 
 interface TourPageProps {
   params: Promise<{
@@ -21,28 +22,26 @@ export default async function TourPage({ params }: TourPageProps) {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative h-[350px] md:h-[500px]">
+      <section className="relative flex items-end h-[350px] md:h-[500px] bg-green-500">
         <Image
-          src={tour.image}
+          src={tour.imageLandscape}
           alt={tour.name}
           fill
           priority
-          className="object-cover"
+          className="object-cover object-center"
         />
-
         <div className="absolute inset-0 bg-black/40" />
-
-        <div className="absolute bottom-0 left-0 w-full p-8 text-white">
-          <p className="text-lg">
-            {tour.city}, {tour.country}
-          </p>
-
-          <h1 className="text-5xl font-bold mt-2">{tour.name}</h1>
-        </div>
+        <Container className="z-50">
+          <div className="p-8 text-white">
+            <p className="text-lg">
+              {tour.city}, {tour.country}
+            </p>
+            <h1 className="text-5xl font-bold mt-2">{tour.name}</h1>
+          </div>
+        </Container>
       </section>
 
-      {/* Conteúdo */}
-      <section className="max-w-7xl mx-auto p-6 grid lg:grid-cols-[2fr_1fr] gap-10">
+      <Container className="flex justify-between">
         {/* Informações */}
         <div>
           <div className="flex flex-wrap gap-6 mb-8 text-sm">
@@ -67,7 +66,7 @@ export default async function TourPage({ params }: TourPageProps) {
             </div>
           </div>
 
-          <h2 className="text-3xl font-semibold mb-4">Sobre este tour</h2>
+          <h2 className="text-3xl font-semibold mb-4">Detalhes:</h2>
 
           <p className="text-neutral-700 leading-8">{tour.description}</p>
 
@@ -83,7 +82,7 @@ export default async function TourPage({ params }: TourPageProps) {
           </ul>
 
           <h2 className="text-3xl font-semibold mt-10 mb-4">
-            O que está incluído
+            O que o pacote inclui:
           </h2>
 
           <ul className="space-y-3">
@@ -97,13 +96,7 @@ export default async function TourPage({ params }: TourPageProps) {
         </div>
 
         {/* Card de Reserva */}
-        <aside className="sticky top-6 h-fit rounded-3xl shadow-lg border p-6">
-          <h3 className="text-4xl font-bold text-primary">R$ {tour.price}</h3>
-
-          <p className="text-neutral-500 mb-6">por pessoa</p>
-
-          <Button className="w-full py-4 ">Reservar Agora</Button>
-
+        <aside className="w-100 flex flex-col gap-8">
           <div className="mt-8 space-y-3 text-sm">
             <div className="flex justify-between">
               <span>Duração</span>
@@ -125,8 +118,12 @@ export default async function TourPage({ params }: TourPageProps) {
               <span>⭐ {tour.rating}</span>
             </div>
           </div>
+
+          <h3 className="text-3xl font-semibold text-black">R$ {tour.price}</h3>
+
+          <Button className="w-full py-4 ">Reservar Agora</Button>
         </aside>
-      </section>
+      </Container>
     </main>
   );
 }

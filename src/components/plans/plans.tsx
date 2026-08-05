@@ -14,60 +14,61 @@ function PlanCard({ plan }: { plan: (typeof plans)[number] }) {
   const [expandedDescription, setExpandedDescription] = useState(false);
 
   return (
-    <div className="relative w-full h-[600px] p-4">
-      <Image
-        src={plan.img}
-        alt={plan.name}
-        fill
-        className="object-cover rounded-lg"
-      />
+    <div className=" w-full p-4 bg-white rounded-xl border-2 shadow-lg border-zinc-200">
+      <div className="relative h-100 w-full">
+        <Image
+          src={plan.img}
+          alt={plan.name}
+          fill
+          className="object-cover rounded-lg"
+        />
+      </div>
 
-      <div className="absolute bottom-0 left-0 w-full p-4">
-        <div className={styles.glassCard}>
-          <div className="flex items-center justify-between gap-2 border-b-2 border-neutral-300 py-4">
-            <h2 className="text-xl font-semibold text-white">{plan.name}</h2>
+      <div className=" bottom-0 left-0 w-full p-4 ">
+        <div className="flex items-center justify-between gap-2 border-b-2 border-neutral-300 py-4">
+          <h2 className="text-xl font-bold text-black">{plan.name}</h2>
 
-            <span className="text-white">{plan.duration}</span>
-          </div>
-
-          <div
-            className={`flex flex-col gap-2 overflow-hidden ${
-              expandedDescription ? "h-auto" : "h-[180px]"
-            }`}
-          >
-            <div className="flex items-center gap-2 text-neutral-300">
-              <i className="bi bi-info-circle-fill"></i>
-              <p>Descrição:</p>
-            </div>
-
-            <ul className="flex flex-col gap-2">
-              <li className="text-neutral-300">{plan.description}</li>
-
-              {plan.features.map((feature, index) => (
-                <li key={index} className="text-neutral-300">
-                  ✓ {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex justify-end items-center mt-2">
-            <button
-              className="text-white"
-              onClick={() => setExpandedDescription(!expandedDescription)}
-            >
-              {expandedDescription ? "Ler menos" : "Ler mais"}
-            </button>
-          </div>
-
-          <Link
-            href={`/explore/${plan.slug}`}
-            aria-label={`Ver lugares do ${plan.name}`}
-            className="block mt-4"
-          >
-            <Button className="w-full">Ver Lugares</Button>
-          </Link>
+          <span className="text-black">{plan.duration}</span>
         </div>
+
+        <div
+          className={`flex flex-col gap-2 overflow-hidden ${
+            expandedDescription ? "h-auto" : "h-[180px]"
+          }`}
+        >
+          <div className="flex items-center gap-2 text-neutral-800">
+            <p className="font-semibold">Detalhes:</p>
+          </div>
+
+          <ul className="flex flex-col gap-2">
+            <li className="text-neutral-800">{plan.description}</li>
+
+            {plan.features.map((feature, index) => (
+              <li key={index} className="text-neutral-800">
+                ✓ {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex justify-end items-center mt-2">
+          <button
+            className="text-black"
+            onClick={() => setExpandedDescription(!expandedDescription)}
+          >
+            {expandedDescription ? "Ler menos" : "Ler mais"}
+          </button>
+        </div>
+
+        <Link
+          href={`/explore/${plan.slug}`}
+          aria-label={`Ver lugares do ${plan.name}`}
+          className="block mt-4"
+        >
+          <Button className="w-full" variant="secondary">
+            Ver Lugares
+          </Button>
+        </Link>
       </div>
     </div>
   );

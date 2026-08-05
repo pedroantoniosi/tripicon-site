@@ -3,3 +3,16 @@
 button {
     cursor: pointer;
 }
+
+.bg-primary {
+    background-color: #F78E00;
+    color: #000;
+}
+
+.text-primary {
+    color: #F78E00;
+}
+
+.bg-navbar {
+    background-color: #131921;
+}

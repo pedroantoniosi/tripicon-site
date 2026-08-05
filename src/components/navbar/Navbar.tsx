@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-50 w-full">
+      <header className="bg-navbar w-full">
         <nav>
           <Container className="flex justify-between items-center">
             {/* Logo */}

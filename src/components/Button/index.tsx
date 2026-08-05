@@ -1,12 +1,26 @@
 import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export type ButtonVariant = "primary" | "secondary";
 
-export default function Button({ children, className, ...props }: ButtonProps) {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+}
+
+const buttonVariants: Record<ButtonVariant, string> = {
+  primary:
+    " py-1 px-3 bg-zinc-800 rounded-lg text-white hover:bg-zinc-200 hover:text-black",
+  secondary:
+    "py-1 px-2 rounded-full bg-primary  hover:bg-zinc-700 hover:text-white",
+};
+
+export default function Button({
+  children,
+  className = "",
+  variant = "primary",
+}: ButtonProps) {
   return (
     <button
-      className={`cursor-pointer bg-orange-300 text-white bg-primary rounded-full py-1 px-2 font-semibold hover:bg-netural-200 transition ${className}`}
-      {...props}
+      className={`cursor-pointer   font-semibold transition ${buttonVariants[variant]} ${className}`}
     >
       {children}
     </button>

@@ -63,7 +63,7 @@ export default function TourCard({ tour }: TourCardProps) {
           <div>
             <p className="text-sm text-neutral-500">A partir de</p>
 
-            <h4 className="text-3xl font-bold text-primary">R$ {tour.price}</h4>
+            <h4 className="text-3xl font-bold text-black">R$ {tour.price}</h4>
           </div>
 
           <span className="font-semibold group-hover:translate-x-1 transition-transform">

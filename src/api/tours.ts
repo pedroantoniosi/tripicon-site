@@ -1,13 +1,15 @@
+import type { Tour } from "@/types/tour";
+
 const tours = [
   {
     id: 1,
     name: "Bangkok Explorer",
     slug: "bangkok-explorer",
-
     plans: ["basic", "family"],
-
-    city: "Bangkok",
-    country: "Thailand",
+    location: {
+      city: "Bangkok",
+      country: "Thailand",
+    },
     description:
       "Explore os templos históricos, mercados flutuantes e a vibrante vida noturna da capital tailandesa.",
     price: 1299,
@@ -16,6 +18,7 @@ const tours = [
     maxPeople: 20,
     language: "Inglês",
     image: "/assets/img/home/tours/1-bangkok.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/1-bangkok.webp",
     featured: true,
     includes: [
       "Hotel 4 estrelas",
@@ -29,11 +32,11 @@ const tours = [
     id: 2,
     name: "Dubai Luxury Experience",
     slug: "dubai-luxury-experience",
-
     plans: ["premium"],
-
-    city: "Dubai",
-    country: "United Arab Emirates",
+    location: {
+      city: "Dubai",
+      country: "United Arab Emirates",
+    },
     description:
       "Conheça os arranha-céus mais famosos do mundo, safári no deserto e experiências de luxo.",
     price: 2499,
@@ -42,6 +45,7 @@ const tours = [
     maxPeople: 15,
     language: "Inglês",
     image: "/assets/img/home/tours/2-dubai.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/2-dubai.webp",
     featured: true,
     includes: [
       "Hotel 5 estrelas",
@@ -55,11 +59,11 @@ const tours = [
     id: 3,
     name: "London Heritage Tour",
     slug: "london-heritage-tour",
-
     plans: ["basic", "family"],
-
-    city: "London",
-    country: "United Kingdom",
+    location: {
+      city: "London",
+      country: "United Kingdom",
+    },
     description:
       "Descubra os marcos históricos da capital britânica e sua rica cultura.",
     price: 1899,
@@ -68,6 +72,7 @@ const tours = [
     maxPeople: 25,
     language: "Inglês",
     image: "/assets/img/home/tours/3-london.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/3-london.webp",
     featured: false,
     includes: ["Hotel", "City Tour", "Café da manhã"],
     highlights: ["Big Ben", "London Eye", "Tower Bridge"],
@@ -76,11 +81,11 @@ const tours = [
     id: 4,
     name: "Paris Romantic Escape",
     slug: "paris-romantic-escape",
-
     plans: ["basic", "family", "premium"],
-
-    city: "Paris",
-    country: "France",
+    location: {
+      city: "Paris",
+      country: "France",
+    },
     description:
       "Viva a magia da Cidade Luz visitando seus monumentos mais icônicos.",
     price: 1999,
@@ -89,6 +94,7 @@ const tours = [
     maxPeople: 20,
     language: "Francês / Inglês",
     image: "/assets/img/home/tours/4-paris.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/4-paris.webp",
     featured: true,
     includes: ["Hotel 4 estrelas", "Café da manhã", "Passeio de barco"],
     highlights: ["Torre Eiffel", "Museu do Louvre", "Arco do Triunfo"],
@@ -97,11 +103,11 @@ const tours = [
     id: 5,
     name: "Rio de Janeiro",
     slug: "rio-adventure",
-
     plans: ["basic"],
-
-    city: "Rio de Janeiro",
-    country: "Brazil",
+    location: {
+      city: "Rio de Janeiro",
+      country: "Brazil",
+    },
     description:
       "Praias, cultura e paisagens incríveis em uma das cidades mais famosas do mundo.",
     price: 899,
@@ -110,6 +116,7 @@ const tours = [
     maxPeople: 30,
     language: "Português",
     image: "/assets/img/home/tours/5-rio.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/5-rio.webp",
     featured: true,
     includes: ["Hotel", "Transfer", "Passeio turístico"],
     highlights: ["Cristo Redentor", "Pão de Açúcar", "Copacabana"],
@@ -118,11 +125,11 @@ const tours = [
     id: 6,
     name: "Rome Ancient Wonders",
     slug: "rome-ancient-wonders",
-
     plans: ["family", "premium"],
-
-    city: "Rome",
-    country: "Italy",
+    location: {
+      city: "Rome",
+      country: "Italy",
+    },
     description:
       "Viaje pela história visitando monumentos que marcaram o Império Romano.",
     price: 1799,
@@ -131,6 +138,7 @@ const tours = [
     maxPeople: 20,
     language: "Italiano / Inglês",
     image: "/assets/img/home/tours/6-rome.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/6-rome.webp",
     featured: false,
     includes: ["Hotel", "Passeio guiado", "Ingressos"],
     highlights: ["Coliseu", "Fórum Romano", "Fontana di Trevi"],
@@ -139,11 +147,11 @@ const tours = [
     id: 7,
     name: "Istanbul Crossroads",
     slug: "istanbul-crossroads",
-
     plans: ["basic", "family"],
-
-    city: "Istanbul",
-    country: "Turkey",
+    location: {
+      city: "Istanbul",
+      country: "Turkey",
+    },
     description:
       "Conheça a cidade que conecta Europa e Ásia com sua rica herança cultural.",
     price: 1399,
@@ -152,6 +160,7 @@ const tours = [
     maxPeople: 20,
     language: "Turco / Inglês",
     image: "/assets/img/home/tours/7-Istanbul.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/7-istanbul.webp",
     featured: false,
     includes: ["Hotel", "Transfer", "Passeio guiado"],
     highlights: ["Mesquita Azul", "Santa Sofia", "Grande Bazar"],
@@ -160,11 +169,11 @@ const tours = [
     id: 8,
     name: "Singapore Future City",
     slug: "singapore-future-city",
-
     plans: ["premium"],
-
-    city: "Singapore",
-    country: "Singapore",
+    location: {
+      city: "Singapore",
+      country: "Singapore",
+    },
     description:
       "Conheça uma das cidades mais modernas e organizadas do planeta.",
     price: 2299,
@@ -173,6 +182,7 @@ const tours = [
     maxPeople: 15,
     language: "Inglês",
     image: "/assets/img/home/tours/8-singapore.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/8-singapore.webp",
     featured: true,
     includes: ["Hotel", "Transfer", "Passeios"],
     highlights: ["Marina Bay Sands", "Gardens by the Bay", "Sentosa Island"],
@@ -181,11 +191,11 @@ const tours = [
     id: 9,
     name: "Tokyo Discovery",
     slug: "tokyo-discovery",
-
     plans: ["premium"],
-
-    city: "Tokyo",
-    country: "Japan",
+    location: {
+      city: "Tokyo",
+      country: "Japan",
+    },
     description:
       "Tradição e tecnologia reunidas em uma das metrópoles mais fascinantes do mundo.",
     price: 2799,
@@ -194,6 +204,7 @@ const tours = [
     maxPeople: 15,
     language: "Japonês / Inglês",
     image: "/assets/img/home/tours/9-tokyo.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/9-tokyo.webp",
     featured: true,
     includes: ["Hotel", "Passeios guiados", "Transfer"],
     highlights: ["Shibuya", "Templo Senso-ji", "Tokyo Skytree"],
@@ -202,11 +213,11 @@ const tours = [
     id: 10,
     name: "Cancún Paradise",
     slug: "cancun-paradise",
-
     plans: ["family", "premium"],
-
-    city: "Cancún",
-    country: "Mexico",
+    location: {
+      city: "Cancún",
+      country: "Mexico",
+    },
     description:
       "Praias paradisíacas, resorts luxuosos e águas cristalinas do Caribe.",
     price: 1699,
@@ -215,10 +226,11 @@ const tours = [
     maxPeople: 25,
     language: "Espanhol / Inglês",
     image: "/assets/img/home/tours/10-cancun.jfif",
+    imageLandscape: "/assets/img/home/tours-landscape/10-cancun.webp",
     featured: true,
     includes: ["Resort All Inclusive", "Transfer", "Passeios"],
     highlights: ["Zona Hoteleira", "Isla Mujeres", "Chichén Itzá"],
   },
-];
+] satisfies readonly Tour[];
 
 export default tours;

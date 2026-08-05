@@ -16,16 +16,17 @@ const links = [
     href: "/",
   },
   {
-    name: "Explore",
-    href: "/explore",
-  },
-  {
     name: "Sobre",
     href: "/about",
   },
   {
-    name: "Contato",
-    href: "/contact",
+    name: "Explore",
+    href: "/explore",
+  },
+  {
+    name: "Login",
+    href: "/register",
+    variant: "register",
   },
 ];
 
@@ -65,7 +66,7 @@ export default function NavLinks({
               href={link.href}
               onClick={onNavigate}
               className={`relative font-medium transition-colors duration-300 hover:text-primary ${
-                isActive ? "text-orange-300" : "text-white md:text-black"
+                isActive ? "text-primary" : "text-white md:text-white"
               }`}
             >
               {link.name}
