@@ -1,31 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import type { Tour } from "@/types/tour";
+
 interface TourCardProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  tour: any;
+  tour: Tour;
 }
 
 export default function TourCard({ tour }: TourCardProps) {
+  const startingPrice = tour.plans[0].prices[0];
+
   return (
     <Link
       href={`/tours/${tour.slug}`}
-      className="group rounded-3xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300"
+      className="group overflow-hidden rounded-3xl bg-white shadow-md transition-all duration-300 hover:shadow-xl"
     >
-      <div className="relative h-72 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <Image
           src={tour.image}
           alt={tour.name}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 text-sm font-semibold">
+        <div className="absolute right-4 top-4 rounded-full bg-white px-3 py-1 text-sm font-semibold">
           ⭐ {tour.rating}
         </div>
 
         {tour.featured && (
-          <div className="absolute top-4 left-4 bg-primary text-white rounded-full px-3 py-1 text-xs font-semibold uppercase">
+          <div className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase text-white">
             Destaque
           </div>
         )}
@@ -33,40 +36,40 @@ export default function TourCard({ tour }: TourCardProps) {
 
       <div className="p-6">
         <p className="text-sm text-neutral-500">
-          {tour.city}, {tour.country}
+          {tour.location.city}, {tour.location.country}
         </p>
 
-        <h3 className="text-2xl font-bold mt-2 group-hover:text-primary transition-colors">
+        <h3 className="mt-2 text-2xl font-bold transition-colors group-hover:text-primary">
           {tour.name}
         </h3>
 
-        <p className="mt-4 text-neutral-600 line-clamp-3">{tour.description}</p>
+        <p className="mt-4 line-clamp-3 text-neutral-600">{tour.description}</p>
 
-        <div className="flex justify-between mt-8 text-sm text-neutral-500">
-          <span>🕒 {tour.duration}</span>
-
-          <span>👥 {tour.maxPeople}</span>
+        <div className="mt-8 flex justify-between text-sm text-neutral-500">
+          <span>🕒 {startingPrice.duration} dias</span>
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-6">
-          {tour.plans.map((plan: string) => (
+        <div className="mt-6 flex flex-wrap gap-2">
+          {tour.plans.map((plan) => (
             <span
-              key={plan}
-              className="bg-neutral-100 rounded-full px-3 py-1 text-xs capitalize"
+              key={plan.plan}
+              className="rounded-full bg-neutral-100 px-3 py-1 text-xs capitalize"
             >
-              {plan}
+              {plan.plan}
             </span>
           ))}
         </div>
 
-        <div className="flex justify-between items-end mt-8 pt-6 border-t">
+        <div className="mt-8 flex items-end justify-between border-t pt-6">
           <div>
             <p className="text-sm text-neutral-500">A partir de</p>
 
-            <h4 className="text-3xl font-bold text-black">R$ {tour.price}</h4>
+            <h4 className="text-3xl font-bold text-black">
+              R$ {startingPrice.price}
+            </h4>
           </div>
 
-          <span className="font-semibold group-hover:translate-x-1 transition-transform">
+          <span className="font-semibold transition-transform group-hover:translate-x-1">
             Ver Tour →
           </span>
         </div>

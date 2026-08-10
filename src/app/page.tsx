@@ -111,43 +111,47 @@ export default function Home() {
             <Header content="Principais Tours" />
             <div>
               <Slider desktop={4} mobile={1}>
-                {filteredTours.slice(0, 4).map((item) => (
-                  <Link
-                    key={item.id}
-                    href={`/tours/${item.slug}`}
-                    className="relative flex aspect-[9/16] md:aspect-[3/4] overflow-hidden rounded-2xl"
-                  >
-                    {/* Imagem */}
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="absolute inset-0 h-full w-full object-cover scale-[2] z-0"
-                    />
+                {filteredTours.slice(0, 4).map((item) => {
+                  const startingPrice = item.plans[0].prices[0];
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent  to-neutral-900 z-10" />
+                  return (
+                    <Link
+                      key={item.id}
+                      href={`/tours/${item.slug}`}
+                      className="relative flex aspect-[9/16] overflow-hidden rounded-2xl md:aspect-[3/4]"
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="absolute inset-0 z-0 h-full w-full scale-[2] object-cover"
+                      />
 
-                    {/* Conteúdo */}
-                    <div className="absolute inset-0 z-20 flex flex-col justify-end gap-2 p-4   text-white">
-                      <h2 className="text-3xl font-semibold">
-                        {item.location.city}
-                      </h2>
+                      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-neutral-900" />
 
-                      <p className="text-sm font-thin text-zinc-200">
-                        {item.description}
-                      </p>
+                      <div className="absolute inset-0 z-20 flex flex-col justify-end gap-2 p-4 text-white">
+                        <h2 className="text-3xl font-semibold">
+                          {item.location.city}
+                        </h2>
 
-                      <div className="flex items-end justify-between text-sm">
-                        <span>{item.duration}</span>
+                        <p className="text-sm font-thin text-zinc-200">
+                          {item.description}
+                        </p>
 
-                        <span className="flex items-end gap-2">
-                          <span>a partir de</span>
-                          <span className="text-xl">R$ {item.price}</span>
-                        </span>
+                        <div className="flex items-end justify-between text-sm">
+                          <span>{startingPrice.duration} dias</span>
+
+                          <span className="flex items-end gap-2">
+                            <span>a partir de</span>
+
+                            <span className="text-xl">
+                              R$ {startingPrice.price}
+                            </span>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </Slider>
             </div>
           </Container>

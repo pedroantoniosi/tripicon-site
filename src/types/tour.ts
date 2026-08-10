@@ -1,38 +1,40 @@
-export interface Tour {
-  readonly id: number;
+import type { PlanSlug } from "./plans";
 
-  name: string;
-  slug: string;
+export type TourDuration = 7 | 14 | 30;
 
-  location: TourLocation;
+export interface TourPlanPrice {
+  readonly duration: TourDuration;
+  readonly price: number;
+}
 
-  description: string;
-
-  plans: readonly TourPlan[];
-
-  price: number;
-
-  duration: string;
-
-  rating: number;
-
-  maxPeople: number;
-
-  language: string;
-
-  image: string;
-  imageLandscape: string;
-
-  featured: boolean;
-
-  includes: readonly string[];
-
-  highlights: readonly string[];
+export interface TourPlan {
+  readonly plan: PlanSlug;
+  readonly prices: readonly TourPlanPrice[];
 }
 
 export interface TourLocation {
-  city: string;
-  country: string;
+  readonly city: string;
+  readonly country: string;
 }
 
-export type TourPlan = "basic" | "family" | "premium";
+export interface Tour {
+  readonly id: number;
+  readonly name: string;
+  readonly slug: string;
+
+  readonly location: TourLocation;
+
+  readonly description: string;
+
+  readonly plans: readonly TourPlan[];
+
+  readonly rating: number;
+
+  readonly image: string;
+  readonly imageLandscape: string;
+
+  readonly featured: boolean;
+
+  readonly includes: readonly string[];
+  readonly highlights: readonly string[];
+}

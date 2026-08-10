@@ -24,13 +24,12 @@ export default async function ExplorePlanPage({
   }
 
   const filteredTours = tours.filter((tour) =>
-    tour.plans.includes(selectedPlan.slug),
+    tour.plans.some((tourPlan) => tourPlan.plan === selectedPlan.slug),
   );
 
   return (
     <main className="min-h-screen bg-neutral-50">
       <ExploreHero />
-
       <ExploreContent tours={filteredTours} />
     </main>
   );

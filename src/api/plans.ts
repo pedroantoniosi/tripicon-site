@@ -1,9 +1,10 @@
-export const plans = [
+import type { Plans } from "@/types/plans";
+
+const plans = [
   {
     id: 1,
     slug: "basic",
     name: "Plano Básico",
-    duration: "14 dias",
     img: "/assets/img/home/plans/plans-1.webp",
     description:
       "Ideal para quem deseja conhecer os principais pontos turísticos com conforto e excelente custo-benefício.",
@@ -16,11 +17,11 @@ export const plans = [
       "Tempo livre para atividades pessoais",
     ],
   },
+
   {
     id: 2,
     slug: "family",
     name: "Plano Família",
-    duration: "28 dias",
     img: "/assets/img/home/plans/plans-2.webp",
     description:
       "Perfeito para famílias que buscam uma experiência completa, equilibrando lazer, passeios e comodidade.",
@@ -34,11 +35,11 @@ export const plans = [
       "Maior tempo livre para exploração",
     ],
   },
+
   {
     id: 3,
     slug: "premium",
     name: "Plano Premium",
-    duration: "30 dias",
     img: "/assets/img/home/plans/plans-3.webp",
     description:
       "Experiência de alto padrão com serviços exclusivos, roteiro personalizado e suporte completo durante toda a viagem.",
@@ -53,6 +54,6 @@ export const plans = [
       "Suporte 24h",
     ],
   },
-];
+] satisfies readonly Plans[];
 
 export default plans;
