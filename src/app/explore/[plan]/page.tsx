@@ -4,7 +4,7 @@ import plans from "@/api/plans";
 import tours from "@/api/tours";
 
 import ExploreHero from "@/components/explore/ExploreHero";
-import ExploreContent from "@/components/explore/ExploreContent";
+import ExploreContent from "@/components/explore/ExploreClient";
 
 interface ExplorePlanPageProps {
   params: Promise<{

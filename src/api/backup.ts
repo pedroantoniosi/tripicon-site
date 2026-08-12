@@ -1,9 +1,8 @@
 import type { Tour } from "@/types/tour";
 
-type TourData = Omit<Tour, "id">;
-
 const tours = [
   {
+    id: 1,
     name: "Bangkok Explorer",
     slug: "bangkok-explorer",
 
@@ -52,6 +51,7 @@ const tours = [
   },
 
   {
+    id: 2,
     name: "Dubai Luxury Experience",
     slug: "dubai-luxury-experience",
 
@@ -77,7 +77,7 @@ const tours = [
     rating: 4.9,
 
     image: "/assets/img/home/tours/2-dubai.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/02-dubai.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/2-dubai.webp",
 
     featured: true,
 
@@ -92,6 +92,7 @@ const tours = [
   },
 
   {
+    id: 3,
     name: "London Heritage Tour",
     slug: "london-heritage-tour",
 
@@ -125,7 +126,7 @@ const tours = [
     rating: 4.7,
 
     image: "/assets/img/home/tours/3-london.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/03-london.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/3-london.webp",
 
     featured: false,
 
@@ -135,6 +136,7 @@ const tours = [
   },
 
   {
+    id: 4,
     name: "Paris Romantic Escape",
     slug: "paris-romantic-escape",
 
@@ -176,7 +178,7 @@ const tours = [
     rating: 4.9,
 
     image: "/assets/img/home/tours/4-paris.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/04-paris.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/4-paris.webp",
 
     featured: true,
 
@@ -191,6 +193,7 @@ const tours = [
   },
 
   {
+    id: 5,
     name: "Rio Adventure",
     slug: "rio-adventure",
 
@@ -232,7 +235,7 @@ const tours = [
     rating: 4.8,
 
     image: "/assets/img/home/tours/5-rio.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/05-rio.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/5-rio.webp",
 
     featured: true,
 
@@ -242,6 +245,7 @@ const tours = [
   },
 
   {
+    id: 6,
     name: "Rome Ancient Wonders",
     slug: "rome-ancient-wonders",
 
@@ -275,7 +279,7 @@ const tours = [
     rating: 4.8,
 
     image: "/assets/img/home/tours/6-rome.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/06-rome.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/6-rome.webp",
 
     featured: false,
 
@@ -285,6 +289,7 @@ const tours = [
   },
 
   {
+    id: 7,
     name: "Istanbul Crossroads",
     slug: "istanbul-crossroads",
 
@@ -318,7 +323,7 @@ const tours = [
     rating: 4.7,
 
     image: "/assets/img/home/tours/7-Istanbul.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/07-istanbul.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/7-istanbul.webp",
 
     featured: false,
 
@@ -328,6 +333,7 @@ const tours = [
   },
 
   {
+    id: 8,
     name: "Singapore Future City",
     slug: "singapore-future-city",
 
@@ -353,7 +359,7 @@ const tours = [
     rating: 4.9,
 
     image: "/assets/img/home/tours/8-singapore.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/08-singapore.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/8-singapore.webp",
 
     featured: true,
 
@@ -363,6 +369,7 @@ const tours = [
   },
 
   {
+    id: 9,
     name: "Tokyo Discovery",
     slug: "tokyo-discovery",
 
@@ -388,7 +395,7 @@ const tours = [
     rating: 4.9,
 
     image: "/assets/img/home/tours/9-tokyo.jfif",
-    imageLandscape: "/assets/img/home/tours-landscape/09-tokyo.webp",
+    imageLandscape: "/assets/img/home/tours-landscape/9-tokyo.webp",
 
     featured: true,
 
@@ -398,6 +405,7 @@ const tours = [
   },
 
   {
+    id: 10,
     name: "Cancún Paradise",
     slug: "cancun-paradise",
 
@@ -439,18 +447,6 @@ const tours = [
 
     highlights: ["Zona Hoteleira", "Isla Mujeres", "Chichén Itzá"],
   },
-] satisfies readonly TourData[];
+] satisfies readonly Tour[];
 
-// Gera um ID automaticamente para cada tour
-const toursWithId: Tour[] = Array.from({ length: 1000 }, (_, index) => {
-  const baseTour = tours[index % tours.length];
-
-  return {
-    ...baseTour,
-    id: index + 1,
-    slug: `${baseTour.slug}-${index + 1}`,
-    name: `${baseTour.name} ${index + 1}`,
-  };
-});
-
-export default toursWithId;
+export default tours;

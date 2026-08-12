@@ -112,7 +112,7 @@ export default function Home() {
             <div>
               <Slider desktop={4} mobile={1}>
                 {filteredTours.slice(0, 4).map((item) => {
-                  const startingPrice = item.plans[0].prices[0];
+                  const startingPrice = item.plans[0].options[0];
 
                   return (
                     <Link

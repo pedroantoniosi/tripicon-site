@@ -9,7 +9,7 @@ export interface TourPlanPrice {
 
 export interface TourPlan {
   readonly plan: PlanSlug;
-  readonly prices: readonly TourPlanPrice[];
+  readonly options: readonly TourPlanPrice[];
 }
 
 export interface TourLocation {

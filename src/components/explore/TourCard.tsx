@@ -8,7 +8,7 @@ interface TourCardProps {
 }
 
 export default function TourCard({ tour }: TourCardProps) {
-  const startingPrice = tour.plans[0].prices[0];
+  const startingPrice = tour.plans[0].options[0];
 
   return (
     <Link
