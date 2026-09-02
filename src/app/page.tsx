@@ -1,25 +1,48 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-//Import Properties
+// States
 import { useState } from "react";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Link from "next/link";
 
-//Import Components
+// Components
 import Plans from "@/components/plans/plans";
 import Slider from "@/components/Slider";
 import Container from "@/components/Container";
 
-//Import API's
+// API
 import tours from "@/api/tours";
 import testimonials from "@/api/testimonals";
 
-// Import Styles
-
+// UI
 import Button from "@/components/Button";
-import PopularTours from "@/components/home/PopularTours";
 import Header from "@/components/home/Header";
+
+// Import Object
+const infos = [
+  {
+    id: 1,
+    step: "Lorem ipsum dolor sit",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit",
+    icon: "1",
+  },
+  {
+    id: 2,
+    step: "Lorem ipsum dolor sit",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit",
+    icon: "2",
+  },
+  {
+    id: 3,
+    step: "Lorem ipsum dolor sit",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit",
+    icon: "3",
+  },
+];
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -97,13 +120,35 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Lugares Famosos */}
-        <section>
-          <Container>
-            <Header content="Conheça lugares sensacionais" />
-            <PopularTours />
+        {/* Informações */}
+        <div>
+          <Container className="grid md:grid-cols-2 gap-8 items-center">
+            <img
+              src="/assets/img/home/infos.webp"
+              className="w-full object-cover aspect-square rounded-4xl"
+              alt=""
+            />
+            <div className="flex flex-col">
+              <h2 className="text-3xl py-4 max-w-150 font-semibold">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum,
+                repudiandae.
+              </h2>
+              <div className="flex flex-col gap-8">
+                {infos.map((item) => (
+                  <div key={item.id} className="flex gap-8">
+                    <div className="flex justify-center items-center bg-primary w-15 h-15 p-4 rounded-full aspect-square text-2xl font-bold">
+                      {item.icon}
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <h2 className="text-black text-2xl">{item.step}</h2>
+                      <p className="text-zinc-700">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Container>
-        </section>
+        </div>
 
         {/* Principais Tours */}
         <section>
@@ -111,7 +156,7 @@ export default function Home() {
             <Header content="Principais Tours" />
             <div>
               <Slider desktop={4} mobile={1}>
-                {filteredTours.slice(0, 4).map((item) => {
+                {filteredTours.slice(0, 8).map((item) => {
                   const startingPrice = item.plans[0].options[0];
 
                   return (
@@ -128,7 +173,10 @@ export default function Home() {
 
                       <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-neutral-900" />
 
-                      <div className="absolute inset-0 z-20 flex flex-col justify-end gap-2 p-4 text-white">
+                      <div
+                        className="p-6 absolute inset-0 z-20 flex flex-col h-fit gap-2 p-4 text-white mt-auto    rounded-2xl
+                                    border border-white/20 bg-black/40 backdrop-blur-xl shadow-xl"
+                      >
                         <h2 className="text-3xl font-semibold">
                           {item.location.city}
                         </h2>
@@ -195,7 +243,9 @@ export default function Home() {
                 </span>
               </h2>
 
-              <Button className="max-w-50 h-11">Veja Ofertas</Button>
+              <Button className="max-w-50 h-11" variant="accent">
+                Veja Ofertas
+              </Button>
             </div>
           </Container>
         </section>
@@ -205,8 +255,8 @@ export default function Home() {
           <Container>
             <Header content="Principais Tours" />
 
-            <div>
-              <Slider desktop={3} mobile={1}>
+            <div className="grid grid-cols-2 gap-16">
+              <div className="flex flex-col gap-4 max-h-150 overflow-y-auto ">
                 {testimonials.map((item) => (
                   <div
                     key={item.id}
@@ -217,7 +267,6 @@ export default function Home() {
                       <span className="font-bold text-xl">
                         {item.rating.toFixed(1)}
                       </span>
-
                       <div className="relative w-fit">
                         {/* Camada cinza */}
                         <div className="flex text-neutral-500 gap-1">
@@ -225,7 +274,6 @@ export default function Home() {
                             <i key={i} className="bi bi-star-fill"></i>
                           ))}
                         </div>
-
                         {/* Camada amarela */}
                         <div
                           className="absolute inset-0 overflow-hidden"
@@ -241,7 +289,12 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-
+                    {/* Text */}
+                    <div>
+                      <h2 className="text-black text-2xl font-semibold">
+                        {`"${item.text}"`}
+                      </h2>
+                    </div>
                     {/* Trip Location */}
                     <div className="flex items-center justify-between">
                       <h2 className="text-black font-semibold text-lg text-neutral-500">
@@ -251,29 +304,16 @@ export default function Home() {
                         {item.trip}
                       </span>
                     </div>
-
-                    {/* Text */}
-                    <div>
-                      <h2 className="text-black text-2xl font-semibold">
-                        {`"${item.text}"`}
-                      </h2>
-                    </div>
-
-                    {/* Images */}
-                    <div className="flex flex-row gap-2 mt-auto">
-                      {item.images.slice(0, 1).map((image, index) => (
-                        <>
-                          <img
-                            src={image}
-                            alt={`${item.name} ${index + 1}`}
-                            className="w-full aspect-square rounded-lg object-cover"
-                          />
-                        </>
-                      ))}
-                    </div>
                   </div>
                 ))}
-              </Slider>
+              </div>
+              <div>
+                <img
+                  src="/assets/img/home/rating.png"
+                  className="w-full object-cover aspect-square rounded-4xl"
+                  alt=""
+                />
+              </div>
             </div>
           </Container>
         </section>

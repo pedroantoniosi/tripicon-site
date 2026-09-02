@@ -66,14 +66,14 @@ export default function NavLinks({
               href={link.href}
               onClick={onNavigate}
               className={`relative font-medium transition-colors duration-300 hover:text-primary ${
-                isActive ? "text-primary" : "text-white md:text-white"
+                isActive ? "text-primary" : "text-black "
               }`}
             >
               {link.name}
 
               {!mobile && (
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] bg-primary transition-all duration-300 ${
+                  className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-300 ${
                     isActive ? "w-full" : "w-0"
                   }`}
                 />

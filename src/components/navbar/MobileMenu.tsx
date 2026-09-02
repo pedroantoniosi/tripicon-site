@@ -39,7 +39,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         className={`
           fixed top-0 right-0 z-50
           h-screen w-[320px] max-w-[85vw]
-          bg-neutral-900
+          bg-white
           shadow-2xl
           transition-transform duration-300 ease-in-out
           flex flex-col

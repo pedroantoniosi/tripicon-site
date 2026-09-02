@@ -1,108 +1,88 @@
-"use client";
-
-import styles from "./plans.module.css";
-
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-
 import plans from "@/api/plans";
-import Button from "../Button";
-import PlansFilters from "./PlansFilters";
 
-function PlanCard({ plan }: { plan: (typeof plans)[number] }) {
-  const [expandedDescription, setExpandedDescription] = useState(false);
-
+export default function Plans() {
   return (
-    <div className=" w-full p-4 bg-white rounded-xl border-2 shadow-lg border-zinc-200">
-      <div className="relative h-100 w-full">
-        <Image
-          src={plan.img}
-          alt={plan.name}
-          fill
-          className="object-cover rounded-lg"
-        />
+    <section className="w-full bg-white py-16">
+      <div className="mx-auto grid  grid-cols-1 gap-6 px-6 md:grid-cols-3">
+        {plans.map((plan, index) => {
+          const isFeatured = index === 1;
+
+          return (
+            <article
+              key={plan.id}
+              className={[
+                "relative flex flex-col rounded-2xl border-2 border-zinc-200 p-8 transition-all shadows-1",
+                isFeatured
+                  ? "border-neutral-900 bg-neutral-900 text-white shadow-xl"
+                  : "border-neutral-200 bg-white text-neutral-900",
+              ].join(" ")}
+            >
+              {/* Badge do plano em destaque */}
+              {isFeatured && (
+                <span className="absolute right-5 top-5 rounded-full bg-orange-500 px-3 py-1 text-[10px] font-semibold text-white">
+                  Popular
+                </span>
+              )}
+
+              {/* Imagem */}
+              <div className="mb-6 flex h- items-center justify-center overflow-hidden rounded-xl">
+                <img
+                  src={plan.img}
+                  alt={plan.name}
+                  className="h-50 w-full aspect-video object-cover"
+                />
+              </div>
+
+              {/* Nome */}
+              <h3 className="text-lg font-semibold">{plan.name}</h3>
+
+              {/* Descrição */}
+              <p
+                className={[
+                  "mt-2 min-h-[72px] text-sm leading-6",
+                  isFeatured ? "text-neutral-400" : "text-neutral-500",
+                ].join(" ")}
+              >
+                {plan.description}
+              </p>
+
+              {/* Features */}
+              <ul className="mt-6 flex flex-1 flex-col gap-3">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm">
+                    <span
+                      className={[
+                        "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold",
+                        isFeatured
+                          ? "bg-white text-neutral-900"
+                          : "bg-neutral-900 text-white",
+                      ].join(" ")}
+                    >
+                      ✓
+                    </span>
+
+                    <span
+                      className={
+                        isFeatured ? "text-neutral-300" : "text-neutral-600"
+                      }
+                    >
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Botão */}
+              <button
+                type="button"
+                className="mt-8 w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-orange-600"
+              >
+                Escolher plano
+              </button>
+            </article>
+          );
+        })}
       </div>
-
-      <div className=" bottom-0 left-0 w-full p-4 ">
-        <div className="flex items-center justify-between gap-2 border-b-2 border-neutral-300 py-4">
-          <h2 className="text-xl font-bold text-black">{plan.name}</h2>
-
-          <span className="text-black">{plan.duration}</span>
-        </div>
-
-        <div
-          className={`flex flex-col gap-2 overflow-hidden ${
-            expandedDescription ? "h-auto" : "h-[180px]"
-          }`}
-        >
-          <div className="flex items-center gap-2 text-neutral-800">
-            <p className="font-semibold">Detalhes:</p>
-          </div>
-
-          <ul className="flex flex-col gap-2">
-            <li className="text-neutral-800">{plan.description}</li>
-
-            {plan.features.map((feature, index) => (
-              <li key={index} className="text-neutral-800">
-                ✓ {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="flex justify-end items-center mt-2">
-          <button
-            className="text-black"
-            onClick={() => setExpandedDescription(!expandedDescription)}
-          >
-            {expandedDescription ? "Ler menos" : "Ler mais"}
-          </button>
-        </div>
-
-        <Link
-          href={`/explore/${plan.slug}`}
-          aria-label={`Ver lugares do ${plan.name}`}
-          className="block mt-4"
-        >
-          <Button className="w-full" variant="secondary">
-            Ver Lugares
-          </Button>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-export default function TravelPlans() {
-  const [selectedPlan, setSelectedPlan] = useState(plans[0]);
-
-  function handleSelectPlan(id: number) {
-    const plan = plans.find((plan) => plan.id === id);
-
-    if (!plan) return;
-
-    setSelectedPlan(plan);
-  }
-
-  return (
-    <div className="flex flex-col ">
-      {/* Mobile */}
-      <div className="md:hidden">
-        <PlansFilters
-          selectedPlanId={selectedPlan.id}
-          onSelectPlan={handleSelectPlan}
-        />
-
-        <PlanCard plan={selectedPlan} />
-      </div>
-
-      {/* Desktop */}
-      <div className="max-md:hidden md:grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-        {plans.map((plan) => (
-          <PlanCard key={plan.id} plan={plan} />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }

@@ -87,7 +87,7 @@ export default function ExploreClient({ tours }: ExploreClientProps) {
   });
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
       <ExploreFilters
         search={search}
         selectedPlan={selectedPlan}

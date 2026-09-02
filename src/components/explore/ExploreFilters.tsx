@@ -30,22 +30,22 @@ export default function ExploreFilters({
   onSortChange,
 }: ExploreFiltersProps) {
   return (
-    <section>
-      <div>
-        <h1>Explore nossos destinos</h1>
+    <section className="flex flex-col gap-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl">Explore nossos destinos</h1>
 
         <p className="mt-2 text-neutral-500">
           {totalResults} viagens encontradas
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl">
+      <div className="flex flex-col gap-6">
         <input
           type="text"
           placeholder="Pesquisar destino..."
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
-          className="rounded-xl border px-5 py-3 outline-none focus:border-primary"
+          className="rounded-xl border px-5 py-3 outline-none focus:border-primary "
         />
 
         <div className="flex gap-4">

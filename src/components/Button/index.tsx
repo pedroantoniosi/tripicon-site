@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from "react";
 
-export type ButtonVariant = "primary" | "secondary";
+export type ButtonVariant = "primary" | "secondary" | "accent";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -12,6 +12,7 @@ const buttonVariants: Record<ButtonVariant, string> = {
 
   secondary:
     "py-1 px-2 rounded-full bg-primary hover:bg-zinc-700 hover:text-white",
+  accent: "py-1 px-3 bg-white rounded-lg text-black hover:bg-zinc-200",
 };
 
 export default function Button({

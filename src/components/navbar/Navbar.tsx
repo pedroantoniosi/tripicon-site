@@ -12,14 +12,14 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="bg-navbar w-full">
+      <header className="w-full max-w-350 fixed mx-auto z-[9] rounded-full top-5 left-1/2 -translate-x-1/2 bg-white text-black shadow-2xl">
         <nav>
           <Container className="flex justify-between items-center">
             {/* Logo */}
             <Link href="/">
               <button
-                className="rounded-2xl border border-white/15 bg-black/20 backdrop-blur-md px-2 py-1 text-2xl
-                          font-bold text-white shadow-lg transition-all duration-300 hover:bg-white/15 hover:border-white/25 hover:scale-[1.02] active:scale-95"
+                className="rounded-2xl text-2xl
+                          font-bold text-black  px-2 py-1 transition-all duration-300 hover:bg-white/15 active:scale-95"
               >
                 TripIcon
               </button>
