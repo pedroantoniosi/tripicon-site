@@ -23,23 +23,23 @@ import Header from "@/components/home/Header";
 const infos = [
   {
     id: 1,
-    step: "Lorem ipsum dolor sit",
+    step: "Escolha seu destino",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit",
+      "Explore diferentes destinos e encontre a viagem que combina com seus planos e orçamento.",
     icon: "1",
   },
   {
     id: 2,
-    step: "Lorem ipsum dolor sit",
+    step: "Personalize sua viagem",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit",
+      "Escolha o plano, a duração da viagem e confira todos os detalhes antes de fazer sua reserva.",
     icon: "2",
   },
   {
     id: 3,
-    step: "Lorem ipsum dolor sit",
+    step: "Confirme sua reserva",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit",
+      "Preencha seus dados, escolha a forma de pagamento e finalize sua reserva de forma rápida e segura.",
     icon: "3",
   },
 ];
@@ -255,7 +255,7 @@ export default function Home() {
           <Container>
             <Header content="Principais Tours" />
 
-            <div className="grid grid-cols-2 gap-16">
+            <div className="grid md:grid-cols-2 gap-16">
               <div className="flex flex-col gap-4 max-h-150 overflow-y-auto ">
                 {testimonials.map((item) => (
                   <div
