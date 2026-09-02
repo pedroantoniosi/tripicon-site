@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import tours from "@/api/tours";
@@ -11,7 +11,7 @@ import Button from "@/components/Button";
 
 type PaymentMethod = "card" | "pix";
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
 
   /*
@@ -24,13 +24,11 @@ export default function CheckoutPage() {
   const duration = Number(durationParam);
 
   // Reconstrói a tour selecionada.
-
   const tour = useMemo(() => {
     return tours.find((item) => item.slug === tourSlug);
   }, [tourSlug]);
 
-  //Plano selecionado dentro da tour.
-
+  // Plano selecionado dentro da tour.
   const tourPlan = useMemo(() => {
     return tour?.plans.find((item) => item.plan === planSlug);
   }, [tour, planSlug]);
@@ -59,7 +57,7 @@ export default function CheckoutPage() {
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCvv, setCardCvv] = useState("");
 
-  //  Checkout
+  // Checkout
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   const [error, setError] = useState("");
@@ -94,7 +92,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    // Verificação  de Cartão
+    // Verificação de Cartão
     if (paymentMethod === "card") {
       if (
         !cardNumber.trim() ||
@@ -107,6 +105,7 @@ export default function CheckoutPage() {
         return;
       }
     }
+
     setIsConfirmed(true);
   }
 
@@ -472,5 +471,23 @@ export default function CheckoutPage() {
         </div>
       </Container>
     </main>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-neutral-50">
+          <Container className="py-20">
+            <div className="mx-auto max-w-xl rounded-3xl border border-neutral-200 bg-white p-8 text-center shadow-sm">
+              <p className="text-neutral-500">Carregando checkout...</p>
+            </div>
+          </Container>
+        </main>
+      }
+    >
+      <CheckoutContent />
+    </Suspense>
   );
 }

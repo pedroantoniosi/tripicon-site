@@ -2,7 +2,6 @@ import tours from "@/api/tours";
 
 import ExploreHero from "@/components/explore/ExploreHero";
 import ExploreClient from "@/components/explore/ExploreClient";
-import Container from "@/components/Container";
 
 export default function ExplorePage() {
   return (
